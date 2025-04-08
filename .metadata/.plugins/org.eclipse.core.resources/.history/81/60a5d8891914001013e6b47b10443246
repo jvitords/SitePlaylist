@@ -1,0 +1,16 @@
+package com.projetoplaylist.entities.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.projetoplaylist.entities.Music;
+
+
+public class PlaylistGetDTO {
+	
+	private String name;
+	private String genre;
+	private Integer quantityMusic;
+	
+	private List<Music> listMusics = new ArrayList<>();
+}

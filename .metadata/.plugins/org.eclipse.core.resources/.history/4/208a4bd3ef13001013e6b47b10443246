@@ -1,0 +1,32 @@
+package com.projetoplaylist.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.projetoplaylist.entities.Playlist;
+import com.projetoplaylist.repository.PlaylistRepository;
+
+@Service
+public class PlaylistService {
+	
+	@Autowired
+	PlaylistRepository playlistRepository;
+	
+	public PlaylistService() {
+		super();
+	}
+
+	public PlaylistService(PlaylistRepository playlistRepository) {
+		this.playlistRepository = playlistRepository;
+	}
+	
+	public List<Playlist> findAllPlaylist() {
+		return playlistRepository.findAll();
+	}
+	
+	public List<Playlist> findName(String name) {
+		return playlistRepository.findByNameContainingIgnoreCase(name);
+	}
+}

@@ -1,0 +1,29 @@
+package com.projetoplaylist.entities.dto;
+
+import java.io.Serializable;
+
+import com.projetoplaylist.entities.Playlist;
+
+public class PlaylistDTO implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	private String name;
+
+	public PlaylistDTO() {
+	}
+
+	public PlaylistDTO(Playlist playlist) {
+		this.name = playlist.getName();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	
+}

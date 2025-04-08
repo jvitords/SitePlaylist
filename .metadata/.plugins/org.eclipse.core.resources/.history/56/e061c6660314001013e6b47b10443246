@@ -1,0 +1,39 @@
+package com.projetoplaylist.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.projetoplaylist.entities.Playlist;
+import com.projetoplaylist.service.PlaylistService;
+
+import jakarta.websocket.server.PathParam;
+
+@RestController
+@RequestMapping(value = "/playlist")
+public class PlaylistController {
+	
+	@Autowired
+	PlaylistService playlistService;
+	
+	// encontra playlist que contém o nome que for passado na URL, por exemplo: /playlist?name=sertanejo
+	// caso nada for passado ele vai entrar no if e retornar todas as playlists
+	@GetMapping
+    public ResponseEntity<List<Playlist>> findAllOrByName(@RequestParam(required = false) String name) { 
+        if (name == null || name.isBlank()) {
+            return ResponseEntity.ok().body(playlistService.findAllPlaylist());
+        } else {
+            return ResponseEntity.ok().body(playlistService.findByName(name));
+        }
+    }
+	
+	public ResponseEntity<Playlist> createPlaylist() {
+		
+	}
+}

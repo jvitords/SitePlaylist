@@ -1,0 +1,15 @@
+package com.projetoplaylist.configuration;
+
+import org.springframework.boot.CommandLineRunner;
+
+@org.springframework.context.annotation.Configuration
+public class Configuration implements CommandLineRunner{
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		
+		
+	}
+
+}

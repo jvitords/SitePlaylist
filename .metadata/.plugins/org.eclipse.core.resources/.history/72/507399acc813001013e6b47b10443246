@@ -1,0 +1,6 @@
+package com.projetoplaylist.configuration;
+
+@org.springframework.context.annotation.Configuration
+public class Configuration {
+
+}

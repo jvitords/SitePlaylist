@@ -1,0 +1,63 @@
+package com.projetoplaylist.entities.dto;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.projetoplaylist.entities.Music;
+
+
+public class PlaylistGetDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	
+	private String name;
+	private String genre;
+	private Integer quantityMusic;
+	
+	private List<Music> listMusics = new ArrayList<>();
+
+	public PlaylistGetDTO() {
+	}
+
+	public PlaylistGetDTO(String name, String genre, Integer quantityMusic, List<Music> listMusics) {
+		this.name = name;
+		this.genre = genre;
+		this.quantityMusic = quantityMusic;
+		this.listMusics = listMusics;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public Integer getQuantityMusic() {
+		return quantityMusic;
+	}
+
+	public void setQuantityMusic(Integer quantityMusic) {
+		this.quantityMusic = quantityMusic;
+	}
+
+	public List<Music> getListMusics() {
+		return listMusics;
+	}
+
+	public void setListMusics(List<Music> listMusics) {
+		this.listMusics = listMusics;
+	}
+	
+	
+}

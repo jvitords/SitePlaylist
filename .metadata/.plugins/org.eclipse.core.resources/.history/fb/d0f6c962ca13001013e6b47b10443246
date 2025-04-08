@@ -1,0 +1,9 @@
+package com.projetoplaylist.entities;
+
+import jakarta.persistence.Id;
+
+public class Playlist {
+	
+	@Id
+	private Long id;
+}

@@ -1,0 +1,31 @@
+package com.projetoplaylist.entities;
+
+import java.io.Serializable;
+
+import jakarta.persistence.Id;
+
+public class Playlist implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	private Long id;
+
+	public Playlist() {
+		super();
+	}
+
+	public Playlist(Long id) {
+		this.id = id;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
+}

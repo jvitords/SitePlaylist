@@ -1,0 +1,24 @@
+package com.projetoplaylist.configuration;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
+
+import com.projetoplaylist.entities.Playlist;
+import com.projetoplaylist.repository.PlaylistRepository;
+
+@org.springframework.context.annotation.Configuration
+@Profile("test")
+public class Configuration implements CommandLineRunner{
+
+	@Autowired
+	PlaylistRepository playlistRepository;
+	
+	@Override
+	public void run(String... args) throws Exception {
+		
+		Playlist p1 = new Playlist(null);
+		playlistRepository.save(p1);
+	}
+
+}
