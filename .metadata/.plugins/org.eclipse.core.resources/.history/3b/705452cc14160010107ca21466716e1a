@@ -1,0 +1,12 @@
+package com.projetoplaylist.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.projetoplaylist.service.MusicService;
+
+public class MusicController {
+	
+	@Autowired
+	MusicService musicService;
+
+}

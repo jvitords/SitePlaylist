@@ -1,0 +1,10 @@
+package com.projetoplaylist.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.projetoplaylist.entities.Music;
+import com.projetoplaylist.entities.Playlist;
+
+public class MusicRepository  extends JpaRepository<Music, Long>{
+
+}

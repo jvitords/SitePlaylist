@@ -2,8 +2,11 @@ package com.projetoplaylist.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,7 +14,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+@EqualsAndHashCode
 @Entity
 public class Playlist implements Serializable{
 	
@@ -20,62 +31,20 @@ public class Playlist implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(unique = true)
 	private String name;
 	private String genre;
-	private Integer quantityMusic;
+	private Integer quantityMusic = 0;
 	
 	@ManyToMany
 	@JoinTable(name = "tb_playlist_music", joinColumns = @JoinColumn(name = "id_playlist"), inverseJoinColumns = @JoinColumn(name = "id_music"))
-	private List<Music> listMusics = new ArrayList<>();
+	private Set<Music> listMusics = new HashSet<>();
 	
-	public Playlist() {
-	}
+	public Playlist() {}
 	
 	public Playlist(Long id, String name, String genre) {
 		this.id = id;
 		this.name = name;
 		this.genre = genre;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getGenre() {
-		return genre;
-	}
-
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
-
-	public Integer getQuantityMusic() {
-		this.quantityMusic = listMusics.size();
-		return quantityMusic;
-	}
-
-	public void setQuantityMusic(Integer quantityMusic) {
-		this.quantityMusic = quantityMusic;
-	}
-
-	public List<Music> getListMusics(){
-		return listMusics;
-	}
-
-	public void setListMusics(List<Music> listMusics) {
-		this.listMusics = listMusics;
-	}
-	
+	}	
 }
